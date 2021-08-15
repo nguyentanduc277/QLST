@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1049.0" styleClass="gradient-background" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.homepage.Home_Employee">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1380.0" styleClass="gradient-background" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.homepage.Home_Employee">
    <top>
       <HBox alignment="CENTER" prefHeight="84.0" prefWidth="1380.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
@@ -43,7 +43,7 @@
             </HBox>
             <Label fx:id="id" text="id" />
             <Pane maxHeight="-Infinity" prefHeight="2.0" prefWidth="292.0" style="-fx-background-color: #fff;" styleClass="line-color" HBox.hgrow="ALWAYS" />
-            <Label alignment="CENTER" prefHeight="61.0" prefWidth="343.0" styleClass="shadow" text="Employee" textFill="#f50000">
+            <Label alignment="CENTER" onMouseClicked="#home" prefHeight="61.0" prefWidth="343.0" styleClass="shadow" text="Employee" textFill="#f50000">
                <font>
                   <Font name="Bernard MT Condensed" size="35.0" />
                </font>

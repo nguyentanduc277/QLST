@@ -14,7 +14,7 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
-		primaryStage.initStyle(StageStyle.UNDECORATED);
+//		primaryStage.initStyle(StageStyle.UNDECORATED);
 		try {
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("ui/homepage/Login.fxml"));
 			Scene scene = new Scene(root);

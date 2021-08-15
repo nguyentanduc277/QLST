@@ -43,7 +43,7 @@
             </HBox>
             <Label fx:id="id" text="id" />
             <Pane maxHeight="-Infinity" prefHeight="2.0" prefWidth="292.0" style="-fx-background-color: #fff;" styleClass="line-color" HBox.hgrow="ALWAYS" />
-            <Label alignment="CENTER" prefHeight="61.0" prefWidth="343.0" styleClass="shadow" text="Manage" textFill="WHITE">
+            <Label alignment="CENTER" onMouseClicked="#home" prefHeight="61.0" prefWidth="343.0" styleClass="shadow" text="Manage" textFill="WHITE">
                <font>
                   <Font name="Bernard MT Condensed" size="35.0" />
                </font>

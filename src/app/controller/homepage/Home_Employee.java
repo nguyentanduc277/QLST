@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import app.dao.connectDB;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -17,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -26,6 +29,9 @@ public class Home_Employee {
 	Connection conn =null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    
+    @FXML
+    private BorderPane mainPane;
    
 	@FXML
     private Label id;
@@ -42,9 +48,16 @@ public class Home_Employee {
     @FXML
     private Pane pane2;
     
-	@FXML
-	void home(MouseEvent event) {
-
+    @FXML
+	void home(MouseEvent event) throws IOException {
+		Stage stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
+		FXMLLoader loader=new FXMLLoader();
+		loader.setLocation(getClass().getResource("../../ui/homepage/Home_Employee.fxml"));							
+		Parent parent=loader.load();
+        Home_Employee home=loader.getController();
+        home.getId(a1,a2,a3);
+		Scene scene=new Scene(parent);				
+		stage.setScene(scene);
 	}
 	
 	@FXML
@@ -88,34 +101,42 @@ public class Home_Employee {
 	
 	
 	
+    private static String emp_id, name,phone,email,username,title_name,date;
 	@FXML
-    void toInformation(MouseEvent event) throws IOException, SQLException {	
-//		Connection conn=connectDB.ConnectDb();
-//		pst = conn.prepareStatement("select * from employee where employee_name = ? and employee_position=?");	
-//		pst.setString(1, a2);
-//		pst.setString(2, a3);
-//		ResultSet rs = pst.executeQuery();
-//					
-//		
-//		if (rs.next()) {
-//				System.out.println("kiem tra thanh cong");
-//				FXMLLoader loader=new FXMLLoader();
-//				loader.setLocation(getClass().getResource("../view/Info_Employee.fxml"));
-//				id=rs.getString("employee_id");
-//				name=rs.getString("employee_name");
-//				position=rs.getString("employee_position");
-//				rank_1=rs.getString("employee_rank");
-//				email=rs.getString("employee_email");
-//				phone=rs.getString("employee_phone");
-//				username=rs.getString("employee_username");
-//				Parent parent=loader.load();	
-//				Info_Employee info=loader.getController();
-//				info.getInfo(name, position, id, rank_1,email,phone,username);
-//				mainPane.setCenter(parent);
-//			}else{
-//        		JOptionPane.showMessageDialog(null, "Ko do dc.");	
-//        	}
-//			conn.close();
+    void toInformation(MouseEvent event) throws IOException, SQLException {
+		
+		Connection conn=connectDB.ConnectDb();
+		pst = conn.prepareStatement("select * from employee where emp_id=?");	
+		pst.setString(1, a1);
+		ResultSet rs = pst.executeQuery();
+					
+		
+		if (rs.next()==true) {
+				System.out.println("kiem tra thanh cong");
+				FXMLLoader loader=new FXMLLoader();
+				loader.setLocation(getClass().getResource("../../ui/homepage/Info_Employee.fxml"));
+				Parent parent=loader.load();
+				emp_id=rs.getString("emp_id");
+				name=rs.getString("emp_name");
+				phone=rs.getString("emp_phone");
+				email=rs.getString("emp_email");
+				username=rs.getString("emp_user");
+				date=rs.getString("emp_birthday");
+				int title_id=rs.getInt("title_id");
+				pst = conn.prepareStatement("select * from title where title_id=?");	
+				pst.setLong(1, title_id);
+				ResultSet rs1 = pst.executeQuery();
+				if (rs1.next()) {
+					title_name=rs1.getString("title_name");
+					System.out.println(title_name);
+				}
+				Info_Employee info=loader.getController();
+				info.getInfo(emp_id, name, title_name, phone, email, username,date);
+				mainPane.setCenter(parent);
+			}else{
+        		JOptionPane.showMessageDialog(null, "Ko do dc.");	
+        	}
+			conn.close();
 	}
 	
 	
