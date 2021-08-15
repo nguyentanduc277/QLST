@@ -1,0 +1,25 @@
+Name Of Product : S?a Hà Lan
+Price Of Product : 10000
+Discount Of Product : 12
+Total :120000
+
+--------------------------------------
+Name Of Product : S?a Hà Lan
+Price Of Product : 10000
+Discount Of Product : 13
+Total :130000
+
+--------------------------------------
+Name Of Product : bánh
+Price Of Product : 2000
+Discount Of Product : 13
+Total :26000
+
+--------------------------------------
+Name Of Product : bánh
+Price Of Product : 2000
+Discount Of Product : 13
+Total :26000
+
+--------------------------------------
+

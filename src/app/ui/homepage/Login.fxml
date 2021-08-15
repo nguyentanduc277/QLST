@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1053.0" styleClass="login_css" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.homepage.Login">
+   <children>
+      <Label layoutX="372.0" layoutY="140.0" prefHeight="45.0" prefWidth="192.0" text="Login Form" textFill="#ff5555">
+         <font>
+            <Font name="Book Antiqua" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="273.0" layoutY="258.0" text="Username: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="273.0" layoutY="295.0" text="Password: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_username" layoutX="378.0" layoutY="261.0" prefHeight="25.0" prefWidth="268.0" promptText="Username" />
+      <TextField fx:id="txt_passhiden" layoutX="209.0" layoutY="162.0" prefHeight="25.0" prefWidth="268.0" promptText="Password" visible="false" />
+      <PasswordField fx:id="txt_pass" layoutX="378.0" layoutY="298.0" prefHeight="25.0" prefWidth="268.0" promptText="Password" />
+      <Button layoutX="468.0" layoutY="397.0" mnemonicParsing="false" onAction="#btn_login" text="Login" textFill="#ff4e4e">
+         <font>
+            <Font name="Book Antiqua" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <CheckBox fx:id="btn_showpass" layoutX="606.0" layoutY="388.0" mnemonicParsing="false" onAction="#show_pass" text="Show Password" />
+      <ImageView fitHeight="30.0" fitWidth="65.0" layoutX="1016.0" layoutY="14.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/icons8-delete-30.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>
