@@ -103,7 +103,7 @@
                      </cursor>
                   </VBox>
                   <Pane maxHeight="-Infinity" prefHeight="100.0" prefWidth="1.0" style="-fx-background-color: white;" styleClass="line-color" />
-                  <VBox alignment="CENTER" prefHeight="204.0" prefWidth="245.0" styleClass="btnhome">
+                  <VBox alignment="CENTER" onMouseClicked="#inventory_employee" prefHeight="204.0" prefWidth="245.0" styleClass="btnhome">
                      <children>
                         <ImageView fitHeight="92.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
                            <image>

@@ -98,7 +98,26 @@ public class Home_Employee {
     }
 	
 	
-	
+    @FXML
+    void inventory_employee(MouseEvent event) {
+        try {
+            //add you loading or delays - ;-)
+           Node node = (Node) event.getSource();
+           Stage stage = (Stage) node.getScene().getWindow();                  
+           stage.close();
+           
+           Parent root = FXMLLoader.load(getClass().getResource("/app/ui/employee/inventory.fxml"));       
+           Scene scene = new Scene(root);       
+           stage.setScene(scene);
+           stage.show();
+
+        } catch (Exception ex) {
+            System.out.println("y"+ex.getMessage());
+        }
+
+    }
+    
+    
 	
 	
     private static String emp_id, name,phone,email,username,title_name,date;
