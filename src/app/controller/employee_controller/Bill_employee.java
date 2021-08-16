@@ -7,9 +7,12 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.JOptionPane;
 
 import app.dao.connectDB;
 import app.model.Bill;
@@ -90,29 +93,37 @@ public class Bill_employee implements Initializable{
     UpdateTable_bill();
     search_user_bill();
     num=0;
+    bill.setText("----------------------SuperMarket------------------------"+"\n"+
+    "Name                Price                Amount              Total"+"\n"+"\n");
 
     // Code Source in description
     } 
     
     
     
+    int p = 0;
     @FXML
-    void pay(ActionEvent event) {        
-
+    void pay(ActionEvent event) {      
+    	if (text_amount.getText().trim().equals("")||text_name.getText().trim().equals("")) {
+        	JOptionPane.showMessageDialog(null, "Please choose a product or amount");
+    	}
+    	p++;
     	int total = 0;
         int x = Integer.parseInt(text_price.getText());
         int y = Integer.parseInt(text_amount.getText());
         total=(x*y);
-        ltotal.setText(total+"");
-    	
-    	
-    	
+        ltotal.setText(""+p);
+    	    	
         String s=bill.getText();
         
-        bill.setText(s+"Name Of Product : "+text_name.getText()+"\n"+"Price Of Product : "+text_price.getText()+"\n"
-        +"Discount Of Product : "+text_amount.getText()+"\n"+"Total :"+total+"\n"+"\n--------------------------------------\n"
+        bill.setText(s+text_name.getText()+"                "+text_price.getText()+"                 "+
+        text_amount.getText()+"                    "+total+"\n"+"---------------------------------------------------------------\n"
         );
         
+        System.out.println(p);
+        
+
+
     }
 
     int num =0;
@@ -128,7 +139,9 @@ public class Bill_employee implements Initializable{
             System.out.println(ex);
         }
                  
-        bill.setText("");
+        bill.setText("----------------------SuperMarket------------------------"+"\n"+
+        	    "Name                Price                Amount              Total"+"\n"+"\n");
+        
   
   }
     

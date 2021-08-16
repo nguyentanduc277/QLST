@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="930.0" styleClass="Inventory_css" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.employee_controller.Inventory_employee">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="930.0">
+         <children>
+            <Pane prefHeight="100.0" prefWidth="262.0">
+               <children>
+                  <Label layoutX="32.0" layoutY="14.0" prefHeight="70.0" prefWidth="210.0" text="Inventory">
+                     <font>
+                        <Font name="Consolas Bold" size="40.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.9157894849777222" green="0.22385965287685394" blue="0.6390175223350525" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="100.0" prefWidth="325.0">
+               <children>
+                  <TextField layoutX="14.0" layoutY="37.0" prefHeight="34.0" prefWidth="195.0" />
+                  <ImageView fitHeight="34.0" fitWidth="36.0" layoutX="219.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../bin/app/image/icons8_Search_52px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="100.0" prefWidth="342.0">
+               <children>
+                  <MenuButton layoutX="21.0" layoutY="37.0" mnemonicParsing="false" opacity="0.65" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: #ffffff;" text="Options" textFill="#ff6464">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Add" />
+                      <MenuItem mnemonicParsing="false" text="Delete" />
+                        <MenuItem mnemonicParsing="false" text="Change" />
+                    </items>
+                     <font>
+                        <Font name="Consolas" size="15.0" />
+                     </font>
+                  </MenuButton>
+                  <ColorPicker layoutX="159.0" layoutY="37.0" prefHeight="28.0" prefWidth="125.0" promptText="ds" />
+               </children>
+            </Pane>
+            <ImageView fitHeight="32.0" fitWidth="41.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/icons8-go-back-48.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <TabPane layoutX="23.0" layoutY="238.0" prefHeight="448.0" prefWidth="858.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="View All">
+               <content>
+                  <TableView prefHeight="419.0" prefWidth="870.0" style="-fx-background-color: #ffffff;">
+                    <columns>
+                        <TableColumn prefWidth="84.79998588562012" text="Wh_id" />
+                      <TableColumn prefWidth="78.4000015258789" text="Pro_id" />
+                      <TableColumn prefWidth="120.80001831054688" text="Amount Stocks" />
+                        <TableColumn prefWidth="104.79998779296875" text="Amount Input" />
+                        <TableColumn prefWidth="104.79995727539062" text="Price Input" />
+                        <TableColumn prefWidth="124.800048828125" text="Date Input" />
+                        <TableColumn prefWidth="104.800048828125" text="Pro_Total" />
+                        <TableColumn prefWidth="141.5999755859375" text="Status" />
+                    </columns>
+                  </TableView>
+               </content>
+            </Tab>
+          <Tab text="View History">
+               <content>
+                  <TableView prefHeight="427.0" prefWidth="908.0" style="-fx-background-color: #ffffff;">
+                     <columns>
+                        <TableColumn prefWidth="84.79998588562012" text="Wh_id" />
+                        <TableColumn prefWidth="78.4000015258789" text="Pro_id" />
+                        <TableColumn prefWidth="120.80001831054688" text="Amount Stocks" />
+                        <TableColumn prefWidth="104.79998779296875" text="Amount Input" />
+                        <TableColumn prefWidth="104.79995727539062" text="Price Input" />
+                        <TableColumn prefWidth="124.800048828125" text="Date Input" />
+                        <TableColumn prefWidth="104.800048828125" text="Pro_Total" />
+                        <TableColumn prefWidth="141.5999755859375" text="Status" />
+                     </columns>
+                  </TableView>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <LineChart layoutX="555.0" layoutY="65.0" prefHeight="192.0" prefWidth="334.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <Button layoutX="36.0" layoutY="100.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="132.0" style="-fx-background-color: #FFE3FC;" text="Import goods" textFill="#fc6b6b">
+         <font>
+            <Font name="Consolas" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="36.0" layoutY="161.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="132.0" style="-fx-background-color: #FFE3FC;" text="Delivery bill" textFill="#fc6b6b">
+         <font>
+            <Font name="Consolas" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
